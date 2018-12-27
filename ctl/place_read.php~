@@ -6,6 +6,7 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+       render("construction_form.php");
         // validate submission
      /*   if (empty($_POST["old_pwd"]))
         {
@@ -59,8 +60,19 @@
     }
     else
     {
+    	$id = null;
+    	if ( !empty($_GET['id'])) {
+      	$id = $_REQUEST['id'];
+    	}
+     
+    	if ( null==$id ) {
+        header("Location: index.php");
+    	} else {
+			//$data = query("select * from place where id = ?", $id); 
         // else render form
-        render("../view/construction_form.php");
+        render("../view/place_read_form.php", ["title" => "Place read",
+            "form_id" => "$id"]);
+         }
     }
 
 ?>

@@ -2,7 +2,7 @@
 
 <form action="/ctl/deposit.php" method="post">
     <fieldset>
-		<div class="form-group">Paying member: 
+		<div class="form-group">
 			<select>
 		   	<option value="member">Member</option>
 		  				<?php

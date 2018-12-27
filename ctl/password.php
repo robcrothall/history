@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("../includes/config.php"); 
+    require("../conf/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -44,7 +44,7 @@
                     apologize("Unable to change password - please contact support");
                 }
                 $message = "Password change was successful.";
-                render("password_confirm_form.php", ["title" => "Password change confirmation",
+                render("../view/password_confirm_form.php", ["title" => "Password change confirmation",
                     "message" => $message]);
             }
             else
@@ -60,7 +60,7 @@
     else
     {
         // else render form
-        render("password_form.php", ["title" => "Change Password",
+        render("../view/password_form.php", ["title" => "Change Password",
             "message" => ""]);
     }
 

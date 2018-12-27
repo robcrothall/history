@@ -6,17 +6,31 @@ if($_POST){
  
     try{
      
+        // insert query
+        $query = "INSERT INTO place SET name=:name, region=:region, country=:country, notes=:notes, user_id=:user_id";
+ 
+        // prepare query for execution
+        $stmt = $con->prepare($query);
+ 
         // posted values
-        $rec_id=htmlspecialchars(strip_tags($_POST['rec_id']));
         $name=htmlspecialchars(strip_tags($_POST['name']));
         $region=htmlspecialchars(strip_tags($_POST['region']));
         $country=htmlspecialchars(strip_tags($_POST['country']));
         $notes=htmlspecialchars(strip_tags($_POST['notes']));
         $user_id=htmlspecialchars(strip_tags($_SESSION['id']));
+ 
+        // bind the parameters
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':region', $region);
+        $stmt->bindParam(':country', $country);
+        $stmt->bindParam(':notes', $notes);
+        $stmt->bindParam(':user_id', $user_id);
+         
+        // specify when this record was inserted to the database
+        //$created=date('Y-m-d H:i:s');
+        //$stmt->bindParam(':created', $created);
          
         // Execute the query
-        $rows = query("update place set name=?, region=?, country=?, notes=?, user_id=?, time_stamp=CURRENT_TIMESTAMP() where id=?",
-        		$name, $region, $country, $notes, $user_id, $rec_id);
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was saved.</div>";
         }else{

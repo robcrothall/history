@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("../conf/config.php"); 
+    require("../includes/config.php"); 
 
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -27,7 +27,7 @@
     else
     {
         // else render form
-        render("../view/quote_req_form.php", ["title" => "Quote Request",
+        render("quote_req_form.php", ["title" => "Quote Request",
             "form_symbol" => "",
             "form_name" => "",
             "form_price" => ""]);

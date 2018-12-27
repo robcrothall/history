@@ -37,9 +37,7 @@
         </div>
     </fieldset>
 </form>
-<!--
 <div>
 	or <button type="button" class="btn btn-default" onclick="<a href='../ctl/login.php'">Log in</button>
     or <a href="../ctl/login.php">log in</a>
 </div>
--->

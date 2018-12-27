@@ -1,7 +1,7 @@
 <?php
 
    // configuration
-   //require("../conf/config.php"); 
+   require("../conf/config.php"); 
 	$_SESSION["module"] = $_SERVER["PHP_SELF"];
 	$data = query("select * from place where id = ?", $form_id); 
    // render header

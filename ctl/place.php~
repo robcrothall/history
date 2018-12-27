@@ -6,6 +6,7 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
+       render("construction_form.php");
         // validate submission
      /*   if (empty($_POST["old_pwd"]))
         {
@@ -60,7 +61,7 @@
     else
     {
         // else render form
-        render("../view/construction_form.php");
+        render("../view/place_form.php", ["title" => "All Places"]);
     }
 
 ?>

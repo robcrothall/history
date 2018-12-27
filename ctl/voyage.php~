@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("../conf/config.php"); 
+    require("../includes/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -60,7 +60,7 @@
     else
     {
         // else render form
-        render("../view/construction_form.php");
+        render("construction_form.php");
     }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("../conf/config.php"); 
+    require("../includes/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
 	 $title = "";
 	 $first_name = "";
@@ -105,13 +105,13 @@
         	$message .= $surname . " ";
         }
         $message .= "has been added to the database as record " . $record_id . ".  Now add her/his history.";
-        render("../view/people_form.php", ["title" => "Person confirmation",
+        render("people_form.php", ["title" => "Person confirmation",
                     "message" => $message]);
     }
     else
     {
         // else render form
-        render("../view/people_form.php", ["title" => "People", "message" => " "]);
+        render("people_form.php", ["title" => "People", "message" => " "]);
     }
 
 ?>

@@ -1,31 +1,18 @@
 <?php
 
     // configuration
-    require("../conf/config.php"); 
+    require("../includes/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // validate submission
-     /*   if (empty($_POST["old_pwd"]))
+        if (empty($_POST["username"]))
         {
-            apologize("You must provide your current password.");
+            apologize("You must provide the UserName to be updated.");
         }
-        else if (empty($_POST["new_pwd1"]))
-        {
-            apologize("You must provide your new password.");
-        }
-        else if (empty($_POST["new_pwd2"]))
-        {
-            apologize("You must provide confirmation of your new password.");
-        }
-        else if ($_POST["new_pwd1"] != $_POST["new_pwd2"])
-        {
-            apologize("Your new password must match your confirmation password.");
-        }
-
         // query database for user
-        $rows = query("SELECT * FROM users WHERE id = ?", $_SESSION["id"]);
+        $rows = query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
 
         // if we found user, check password
         if (count($rows) == 1)
@@ -55,12 +42,12 @@
         else
         {
             apologize("Username not found - call support!");
-        } */
+        } 
     }
     else
     {
         // else render form
-        render("../view/construction_form.php");
+        render("user_form.php");
     }
 
 ?>

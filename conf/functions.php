@@ -13,7 +13,7 @@
      */
     function apologize($message)
     {
-        render("apology.php", ["message" => $message]);
+        render("../view/apology.php", ["message" => $message]);
         exit;
     }
 
@@ -23,7 +23,7 @@
      */
     function dump($variable)
     {
-        require($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "view/dump.php");
+        require("../view/dump.php");
         //exit;
     }
 

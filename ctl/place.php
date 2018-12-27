@@ -1,12 +1,12 @@
 <?php
 
     // configuration
-    require("../includes/config.php"); 
+    require("../conf/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-       render("construction_form.php");
+       render("../view/construction_form.php");
         // validate submission
      /*   if (empty($_POST["old_pwd"]))
         {
@@ -61,7 +61,7 @@
     else
     {
         // else render form
-        render("place_form.php", ["title" => "All Places"]);
+        render("../view/place_form.php", ["title" => "All Places"]);
     }
 
 ?>

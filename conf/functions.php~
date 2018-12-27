@@ -13,7 +13,7 @@
      */
     function apologize($message)
     {
-        render("apology.php", ["message" => $message]);
+        render("../view/apology.php", ["message" => $message]);
         exit;
     }
 
@@ -232,7 +232,7 @@
     function render($template, $values = [])
     {
         // if template exists, render it
-        print_r($template);
+        //print_r($template);
         if (file_exists("$template"))
         {
             // extract variables into local scope

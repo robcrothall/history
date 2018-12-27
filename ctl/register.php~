@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("../conf/config.php");
+    require("../includes/config.php");
     
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -29,7 +29,7 @@
         }
         if (empty($_POST["first_name"]))
         {
-            apologize("You must provide your first name(s).");
+            apologize("You must provide your first name.");
         }
         if (empty($_POST["phone"])) 
         {
@@ -40,7 +40,7 @@
         }
         if (empty($_POST["email"]))
         {
-            apologize("You must provide your email address. We will not abuse it.");
+            apologize("You must provide your email address.");
         }
 
         // query database for user
@@ -79,6 +79,6 @@
     }
     else
     {
-      render("../view/register_form.php", ["title" => "Register"]);
+      render("../templates/register_form.php", ["title" => "Register"]);
     } 
 ?>

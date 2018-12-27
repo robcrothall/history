@@ -1,12 +1,12 @@
 <?php
 
     // configuration
-    require("../includes/config.php"); 
+    require("../conf/config.php"); 
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-       render("construction_form.php");
+       render("../view/construction_form.php");
         // validate submission
      /*   if (empty($_POST["old_pwd"]))
         {
@@ -70,7 +70,7 @@
     	} else {
 			//$data = query("select * from place where id = ?", $id); 
         // else render form
-        render("place_read_form.php", ["title" => "Place read",
+        render("../view/place_read_form.php", ["title" => "Place read",
             "form_id" => "$id"]);
          }
     }

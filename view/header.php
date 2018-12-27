@@ -17,7 +17,7 @@
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <!-- Bootstrap core CSS -->
-   <link href="../assets/css/bootstrap.min.css" rel="stylesheet"> --> 
+   <link href="../assets/css/bootstrap.min.css" rel="stylesheet">  
    <link href="../assets/css/bootstrap.css" rel="stylesheet">
    <!-- Material Design Bootstrap -->
    <!--link href="../css/mdb.min.css" rel="stylesheet">
@@ -70,9 +70,11 @@
 		        <td align="right" width="50%">Membership expiry: <?php echo $_SESSION["member_exp"]; ?> </td>
 	         </tr>
 	       </table>
-		 	<?php
+	       <hr>
+		 	 <?php
     			require("../view/menu.php");
-		 	?>
+		 	 ?>
+		 	 <hr>
        </div>
 
        <div id="middle">
