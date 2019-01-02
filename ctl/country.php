@@ -6,12 +6,11 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-		apologize("System error - we should not have got here via POST! Please print this and report to the Curator.");
+       render("../view/construction_form.php");
     }
     else
     {
-        // else render form
-        render("../view/party_form.php", ["title" => "All Settler Parties"]);
+        render("../view/country_form.php", ["title" => "All Countries"]);
     }
 
 ?>

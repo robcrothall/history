@@ -1,10 +1,12 @@
 <?php
 
+   // configuration
+   //require("../conf/config.php"); 
 	$_SESSION["module"] = $_SERVER["PHP_SELF"];
-	$place_id = htmlspecialchars(strip_tags($form_id));
-	$data = query("select * from place where id = ?", $place_id); 
-	//$_SESSION["place_name"] = $data[0]["name"]; 
-	$name = $data[0]["name"]; 
+	$data = query("select * from place where id = ?", $form_id); 
+   // render header
+   // require("../templates/header.php");
+	$_SESSION["place_name"] = $data[0]["name"]; 
 	$_SESSION["place_region"] = $data[0]["region"];
 	$_SESSION["place_country"] = $data[0]["country"];
 	$_SESSION["place_notes"] = $data[0]["notes"];
@@ -19,8 +21,7 @@
 	      <tr>
 				<td align="right" width="30%">Name:</td>
 				<td width="2%"></td>
-				<!--<td align="left" width="70%"><?php echo $_SESSION["place_name"]; ?></td> -->
-				<td align="left" width="70%"><?php echo $name; ?></td>
+				<td align="left" width="70%"><?php echo $_SESSION["place_name"]; ?></td>
 	      </tr>
 	      <tr>
 				<td align="right" width="30%">First name:</td>

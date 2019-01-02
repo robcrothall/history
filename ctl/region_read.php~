@@ -18,7 +18,7 @@
     	if ( null==$id ) {
         header("Location: index.php");
     	} else {
-        render("../view/place_read_form.php", ["title" => "Display details about a Place",
+        render("../view/country_read_form.php", ["title" => "Display details about a Country",
             "form_id" => "$id"]);
          }
     }

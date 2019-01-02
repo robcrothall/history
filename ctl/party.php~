@@ -60,7 +60,7 @@
     else
     {
         // else render form
-        render("construction_form.php");
+        render("../view/construction_form.php");
     }
 
 ?>
