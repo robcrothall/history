@@ -10,7 +10,7 @@
             $user_id=htmlspecialchars(strip_tags($_SESSION['id']));
             // Do some validation
             $errMsg = "";
-            if (empty($country)) {$errMsg .= "The country name cannot be empty. ";}
+            if (empty($region)) {$errMsg .= "The region name cannot be empty. ";}
             if (!empty($errMsg)) {apologize($errMsg);}
             $rows = query("update regions set region=?, country_id=?, notes=?, user_id=?, changed=CURRENT_TIMESTAMP() where id=?",
                     $region, $country_id, $notes, $user_id, $rec_id);

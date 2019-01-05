@@ -12,8 +12,8 @@
             if (empty($country)) {$errMsg .= "The country name cannot be empty. ";}
             if (!empty($errMsg)) {apologize($errMsg);}
             $rows = query("select count(*) rowCount from countries where country = ?",$country);
-            if ($rows[0]["rowCount"] > 0)
-            {apologize("This country is already present in our records.");}
+            //if ($rows[0]["rowCount"] > 0)
+            //{apologize("This country is already present in our records.");}
             $rows = query("update countries set country=?, notes=?, user_id=?, changed=CURRENT_TIMESTAMP() where id=?",
                     $country, $notes, $user_id, $rec_id);
 				If ($rows === false)

@@ -9,8 +9,9 @@
 	$notes = $data[0]["notes"];
 	$user_id = $data[0]["user_id"];
 	$changed = $data[0]["changed"];
-	$data = query("select username from users where id = ?", $user_id);
+	$data = query("select * from users where id = ?", $user_id);
 	$username = $data[0]["username"];
+	$user_name_given = $data[0]["first_name"] . " " . $data[0]["surname"];
 ?>
 <h2>Read about a Region</h2>
   <div class="container">
@@ -28,7 +29,7 @@
 	      <tr>
 				<td align="right" width="25%">Changed by:</td>
 				<td width="2%"></td>
-				<td align="left" width="70%"><?php echo $username; ?></td>
+				<td align="left" width="70%"><?php echo $username . ' - ' . $user_name_given; ?></td>
 	      </tr>
 	      <tr>
 				<td align="right" width="25%">Changed on:</td>

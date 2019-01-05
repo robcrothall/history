@@ -6,8 +6,25 @@
             <td>Name</td>
             <td><input type='text' name='name' class='form-control'></td>
         </tr>
+	     <tr>
+				<td>Country</td>
+				<td>
+		  			<select name="country_id">
+		    			<!--<option value="any">Any place</option> -->
+		  				<?php
+		  					$rows = query("SELECT * FROM `countries` order by country");
+		  					foreach ($rows as $row) {
+		  						if ($_SESSION["country_select"] == $row['id'])
+		  						{$selected = " selected"}
+		  						else {$selected = ""}
+		    					echo "<option value=" . $row['id'] . $selected . ">" . $row['country'] . "</option>";
+		    				}
+		  				?>
+		  			</select>
+				</td>
+	     </tr>
         <tr>
-            <td>Notes on this country</td>
+            <td>Notes on this region</td>
             <td><textarea name='notes' class='form-control'></textarea></td>
         </tr>
         <tr>

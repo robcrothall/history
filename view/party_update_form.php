@@ -1,103 +1,54 @@
 <?php
-if($_POST){
- 
-    // include database connection
-    include '../conf/constants.php';
- 
-    try{
-     
-        // posted values
-        $rec_id=htmlspecialchars(strip_tags($_POST['rec_id']));
-        $name=htmlspecialchars(strip_tags($_POST['name']));
-        $region=htmlspecialchars(strip_tags($_POST['region']));
-        $country=htmlspecialchars(strip_tags($_POST['country']));
-        $notes=htmlspecialchars(strip_tags($_POST['notes']));
-        $user_id=htmlspecialchars(strip_tags($_SESSION['id']));
-         
-        // Execute the query
-        $rows = query("update place set name=?, region=?, country=?, notes=?, user_id=?, time_stamp=CURRENT_TIMESTAMP() where id=?",
-        		$name, $region, $country, $notes, $user_id, $rec_id);
-        if($stmt->execute()){
-            echo "<div class='alert alert-success'>Record was saved.</div>";
-        }else{
-            echo "<div class='alert alert-danger'>Unable to save record.</div>";
-        }
-         
-    }
-     
-    // show error
-    catch(PDOException $exception){
-        die('ERROR: ' . $exception->getMessage());
-    }
-}
-    // configuration
-    //require("../includes/config.php"); 
-	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
+
+	$_SESSION["module"] = $_SERVER["PHP_SELF"];
+	$party_name_id = htmlspecialchars(strip_tags($_SESSION["rec_id"]));
+	$data = query("select a.*, b.surname, b.first_name from party a, people b where a.party_leader = b.id and a.id = ?", $party_name_id); 
+	$party_name = $data[0]["party_name"]; 
+	$party_leader_id = $data[0]["party_leader"];
+	//$party_leader = $data[0]["surname"];
+	$notes = $data[0]["notes"];
+	$user_id = $data[0]["user_id"];
+	$changed = $data[0]["changed"];
+	$data = query("select username from users where id = ?", $user_id);
+	$username = $data[0]["username"];
 ?>
-<h2>Read about a Place</h2>
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+<h2>Update a party_name</h2>
+
+<form action="../ctl/party_update.php" method="post">
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
-            <td>Name</td>
-            <td><input type='text' name='name' class='form-control' /></td>
+            <td>Name</td> 
+            <input type="hidden" id="rec_id" name="rec_id" value="<?php echo $party_name_id; ?>" /></td>
+            <td><input type='text' name='name' class='form-control' value='<?php echo $party_name; ?>' /></td>
         </tr>
+	     <tr>
+				<td>Party Leader</td>
+				<td>
+		  			<select name="party_leader_id">
+		  				<?php
+		  					$rows = query("SELECT * FROM `people` order by surname, first_name");
+		  					foreach ($rows as $row) {
+		  						if ($party_leader_id == $row['id'])
+		  						{$selected = " selected";}
+		  						else {$selected = "";}
+		    					echo "<option value=" . $row['id'] . $selected . ">" . $row['surname'] . ", " . $row["first_name"] . "</option>";
+		    				}
+		  				?>
+		  			</select>
+				</td>
+	     </tr>
         <tr>
-            <td>Region</td>
-            <td><input type=text name='region' class='form-control' /></td>
-        </tr>
-        <tr>
-            <td>Country</td>
-            <td><input type='text' name='country' class='form-control' /></td>
-        </tr>
-        <tr>
-            <td>Notes on this place</td>
-            <td><textarea name='notes' class='form-control'></textarea></td>
+            <td>Notes on this party</td>
+            <td><textarea name='notes' class='form-control'><?php echo $notes; ?></textarea></td>
         </tr>
         <tr>
             <td></td>
             <td>
                 <input type='submit' value='Save' class='btn btn-primary' />
-                <a href='place.php' class='btn btn-danger'>Back to Places</a>
+                <a href='party.php' class='btn btn-primary'>Back to party list</a>
             </td>
         </tr>
     </table>
 </form>
 
 
-<!--  <div class="container">
-   <table border="0" cellpadding="0" cellspacing="10" width="100%">
-	      <tr>
-				<td align="right" width="30%">Name:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_name"]; ?></td>
-	      </tr>
-	      <tr>
-				<td align="right" width="30%">First name:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_region"]; ?></td>
-	      </tr>
-	      <tr>
-				<td align="right" width="25%">Country:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_country"]; ?></td>
-	      </tr>
-	      <tr>
-				<td align="right" width="25%">Changed by:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_username"]; ?></td>
-	      </tr>
-	      <tr>
-				<td align="right" width="25%">Changed on:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_time"]; ?></td>
-	      </tr>
-	      <tr>
-				<td align="right" width="25%">Notes:</td>
-				<td width="2%"></td>
-				<td align="left" width="70%"><?ph echo $_SESSION["place_notes"]; ?></td>
-	      </tr>
-	</table> 
-   <div class="form-actions">
-      <a class="btn btn-success" href="../public/place.php">Back</a>
-   </div>
-  </div> <!-- /container -->

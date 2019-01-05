@@ -11,7 +11,8 @@
 		$notes = "";
 		if (empty($_POST["name"])) {$message .= "You must provide a name.  "; $error = true;}
 		else {$region = substr(htmlspecialchars(strip_tags($_POST['name'])),0,50);}
-		if (empty($_POST["notes"])) {$notes = ""; $message = "No notes on this country?"; }
+		$country_id = substr(htmlspecialchars(strip_tags($_POST["country_id"])),0,20);
+		if (empty($_POST["notes"])) {$notes = ""; $message = "No notes on this region?  "; }
 		else {$notes=substr(htmlspecialchars(strip_tags($_POST['notes'])),0,65534);}
 
 		// Check for a duplicate region
@@ -22,7 +23,6 @@
 		if($error == false) 
 		{
 			$region = trim($region);
-			$country_id = 1; //*********************************************************************************************
 			$notes = trim($notes);
 			$rowCount = query("insert into regions (region, country_id, notes, user_id, changed) values (?,?,?,?,CURRENT_TIMESTAMP())",$region, $country_id,$notes,$_SESSION["id"]);
 			if($rowCount == false) 
@@ -36,6 +36,7 @@
     }
     else
     {
+    	$_SESSION["country_id"] = 1; // Default to South Africa
       render("../view/region_create_form.php", ["title" => "Record Details of a new Region"]);
     }
 

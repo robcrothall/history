@@ -25,7 +25,7 @@
             {
                 // update the password in the users table
                 $new_password = crypt($_POST["new_pwd1"], $row["username"]);
-                $rows = query("UPDATE users SET hash = ?, time_stamp = CURRENT_TIMESTAMP() WHERE id = ?", $new_password, $row["id"]) ;
+                $rows = query("UPDATE users SET hash = ?, changed = CURRENT_TIMESTAMP() WHERE id = ?", $new_password, $row["id"]) ;
                 if ($rows === false)
                 {
                     apologize("Unable to change password - please contact support");

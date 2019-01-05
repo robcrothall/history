@@ -1,0 +1,6 @@
+s/%title%/Party/g
+s/%table%/party/g
+s/%name%/party_name/g
+s/%lookupTitle%/People/g
+s/%lookupTable%/people/g
+s/%lookupName%/party_leader/g

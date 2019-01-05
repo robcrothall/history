@@ -1,0 +1,6 @@
+s/%title%/Occupations/g
+s/%table%/occupation/g
+s/%name%/occupation/g
+s/%lookupTitle%/Occupation/g
+s/%lookupTable%/occupation/g
+s/%lookupName%/occupation/g

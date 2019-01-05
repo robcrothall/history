@@ -3,12 +3,12 @@
 	 $_SESSION["module"] = $_SERVER["PHP_SELF"];
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-            $rec_id=htmlspecialchars(strip_tags($_SESSION['rec_id']));
+            $rec_id=trim(htmlspecialchars(strip_tags($_SESSION['rec_id'])));
             //print_r($rec_id);
-            $name=htmlspecialchars(strip_tags($_POST['name']));
-            $region=htmlspecialchars(strip_tags($_POST['region']));
-            $country=htmlspecialchars(strip_tags($_POST['country']));
-            $notes=htmlspecialchars(strip_tags($_POST['notes']));
+            $name=trim(substr(htmlspecialchars(strip_tags($_POST['name'])),0,50));
+            $region=trim(substr(htmlspecialchars(strip_tags($_POST['region'])),0,50));
+            $country=trim(substr(htmlspecialchars(strip_tags($_POST['country'])),0,50));
+            $notes=trim(substr(htmlspecialchars(strip_tags($_POST['notes'])),0,65534));
             $user_id=htmlspecialchars(strip_tags($_SESSION['id']));
             // Do some validation
             $errMsg = "";
@@ -21,7 +21,7 @@
       		$_SESSION["place_country"] = $country;
       		$_SESSION["place_notes"] = $notes;
            
-            $rows = query("update place set name=?, region=?, country=?, notes=?, user_id=?, time_stamp=CURRENT_TIMESTAMP() where id=?",
+            $rows = query("update place set name=?, region=?, country=?, notes=?, user_id=?, changed=CURRENT_TIMESTAMP() where id=?",
                     $name, $region, $country, $notes, $user_id, $rec_id);
 				If ($rows === false)
 				{

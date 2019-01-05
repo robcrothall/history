@@ -8,4 +8,4 @@
 	?>
 </p>
 
-<a href="javascript:history.go(-1);">Back</a>
+<a href="javascript:history.go(-1);" class='btn btn-primary'>Back</a>

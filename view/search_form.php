@@ -21,9 +21,9 @@
 		  			<select>
 		    			<option value="any">Any occupation</option>
 		  				<?php
-		  					$rows = query("SELECT * FROM `occupation` order by occupation_name");
+		  					$rows = query("SELECT * FROM `occupation` order by occupation");
 		  					foreach ($rows as $row) {
-		    					echo "<option value=" . $row['id'] . ">" . $row['occupation_name'] . "</option>";
+		    					echo "<option value=" . $row['id'] . ">" . $row['occupation'] . "</option>";
 		    				}
 		 	 			?>
 		  			</select>
@@ -38,7 +38,7 @@
 		  				<?php
 		  					$rows = query("SELECT * FROM `party` order by party_name");
 		  					foreach ($rows as $row) {
-		    					echo "<option value=" . $row['id'] . ">" . $row['party_name'] . "</option>";
+		    					echo "<option value=" . $row['id'] . ">" . $row['party'] . "</option>";
 		    				}
 		  				?>
 		  			</select>  
@@ -60,15 +60,15 @@
 					</td>
 	      </tr>
 	      <tr>
-				<td align="right" width="30%">Place</td>
+				<td align="right" width="30%">Places</td>
 				<td width="2%">&nbsp</td>
 				<td align="left" width="70%">
 		  			<select>
 		    			<option value="any">Any place</option>
 		  				<?php
-		  					$rows = query("SELECT * FROM `place` order by name");
+		  					$rows = query("SELECT * FROM `places` order by place");
 		  					foreach ($rows as $row) {
-		    					echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+		    					echo "<option value=" . $row['id'] . ">" . $row['place'] . "</option>";
 		    				}
 		  				?>
 		  			</select>

@@ -36,6 +36,6 @@
 	      </tr>
 	</table> 
    <div class="form-actions">
-      <a class="btn btn-success" href="../ctl/place.php">Back</a>
+      <a class="btn btn-success" href="../ctl/country.php">Back</a>
    </div>
   </div>

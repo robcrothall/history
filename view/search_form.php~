@@ -86,6 +86,6 @@
    		</tr>
   		</table>
       <br>
-		<a href="../ctl/search.php" style="text-align: center;">Submit</a>
+		<a href="../view/history.php" style="text-align: center;">Submit</a>
 		<br><br>
 		Note that a maximum of 100 names will be returned by this search. 

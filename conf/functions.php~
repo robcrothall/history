@@ -23,7 +23,7 @@
      */
     function dump($variable)
     {
-        require($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "view/dump.php");
+        require("../view/dump.php");
         //exit;
     }
 

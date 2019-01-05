@@ -346,7 +346,7 @@
         {        
             $cmd1 = $cmd1 . ", user_id";
             $cmd2 = $cmd2 . ", " . $_SESSION["id"];
-            $cmd1 = $cmd1 . ", time_stamp";
+            $cmd1 = $cmd1 . ", changed";
             $cmd2 = $cmd2 . ", now()";
         }
         
