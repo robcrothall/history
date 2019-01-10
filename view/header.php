@@ -47,7 +47,7 @@
     <!-- MDB core JavaScript -->
 <!--    <script type="text/javascript" src="../public/js/mdb.min.js"></script>
 	 <!-- Local scripts -->
-    <script src="../js/scripts.js"></script>
+<!--    <script src="../js/scripts.js"></script> -->
   </head>
 
   <body>
@@ -62,7 +62,7 @@
 	       </table>
 	       <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	         <tr>
-		        <td align="left" width="50%">Search client: <?php echo $_SESSION["first_name"] . " " . $_SESSION["surname"] ?> </td>
+		        <td align="left" width="50%">Search client: <?php echo $_SESSION["user_first_name"] . " " . $_SESSION["user_surname"] ?> </td>
 		        <td align="right" width="50%">Timestamp: <?php echo date("Y-m-d H:i:s T"); ?></td>
 	         </tr>
 	         <tr>

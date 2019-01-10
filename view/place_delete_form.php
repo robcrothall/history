@@ -37,28 +37,32 @@
 				<td align="left" width="70%"><?php echo $notes; ?></td>
 	      </tr>
 	</table> 
-	<h3>This Place is used by the following Places - they need to be deleted first!</h3>
+	<h3>This Place is used by the following historic events - they need to be deleted first!</h3>
    <table class="table table-striped table-bordered">         
    	<thead>
          <tr>
-            <th>Place</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Notes</th>
          </tr>
       </thead>
       <tbody>
          <?php 
-         $rows = query("SELECT * from places where place_id = ? order by place", $place_id);
+         $rows = query("SELECT b.surname, b.first_name, a.event_date, a.notes from history a, people b where a.people_id = b.id and a.place_id =? order by b.surname, b.first_name, a.event_date", $place_id);
          if (count($rows) > 0)
             {
             foreach ($rows as $row)
               {
               echo '<tr>';
-              echo '<td>' . $row['place'] . '</td>';
+              echo '<td>' . $row['surname'] . ", " . $row["first_name"] . '</td>';
+              echo '<td>' . $row['event_date'] . '</td>';
+              echo '<td>' . $row['notes'] . '</td>';
               echo '</tr>';
               }
             }
          else 
          	{
-         		echo '<tr><td>No dependent places</td></tr>';
+         		echo '<tr><td>No dependent historic events</td></tr>';
          	}
             ?>
       </tbody>

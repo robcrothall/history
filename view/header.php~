@@ -70,10 +70,11 @@
 		        <td align="right" width="50%">Membership expiry: <?php echo $_SESSION["member_exp"]; ?> </td>
 	         </tr>
 	       </table>
-		 	<?php
+	       <hr>
+		 	 <?php
     			require("../view/menu.php");
-		 	?>
-		 	<hr>
+		 	 ?>
+		 	 <hr>
        </div>
 
        <div id="middle">

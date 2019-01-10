@@ -32,12 +32,12 @@
 			else {$message .= "Failed to add the record - please call support!";}
 		}
 		
-      render("../view/%name%_form.php", ["title" => "List of %title%s", "message" => "$message"]);
+      render("../view/%table%_form.php", ["title" => "List of %title%s", "message" => "$message"]);
     }
     else
     {
     	$_SESSION["%lookupName%_select"] = 1; // Default to South Africa
-      render("../view/%name%_create_form.php", ["title" => "Record Details of a new %title%"]);
+      render("../view/%table%_create_form.php", ["title" => "Record Details of a new %title%"]);
     }
 
 ?>

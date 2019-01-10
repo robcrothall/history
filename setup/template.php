@@ -10,7 +10,7 @@
     }
     else
     {
-        render("../view/%name%_form.php", ["title" => "All %title%s"]);
+        render("../view/%table%_form.php", ["title" => "All %title%"]);
     }
 
 ?>

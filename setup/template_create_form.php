@@ -1,6 +1,6 @@
 <h2>Record a new %title%</h2>
 
-<form action="../ctl/%name%_create.php" method="post">
+<form action="../ctl/%table%_create.php" method="post">
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
             <td>Name</td>
@@ -23,14 +23,14 @@
 				</td>
 	     </tr>
         <tr>
-            <td>Notes on this %name%</td>
+            <td>Notes on this %table%</td>
             <td><textarea name='notes' class='form-control'></textarea></td>
         </tr>
         <tr>
             <td></td>
             <td>
                 <input type='submit' value='Save' class='btn btn-primary' />
-                <a href='../ctl/%name%.php' class='btn btn-primary'>Back to %title%s</a>
+                <a href='../ctl/%table%.php' class='btn btn-primary'>Back to %title%s</a>
             </td>
         </tr>
     </table>
