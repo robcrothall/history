@@ -10,18 +10,18 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
+    	//$id = null;
+    	//if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	}
+    	//}
      
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
+    	//if ( null==$id ) {
+        //header("Location: index.php");
+    	//} else {
     		$_SESSION["party_id"] = $id;
         render("../view/party_read_form.php", ["title" => "Display details about a Party",
             "form_id" => "$id"]);
-         }
+         //}
     }
 
 ?>

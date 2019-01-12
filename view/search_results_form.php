@@ -12,14 +12,8 @@
                 </thead>
                 <tbody>
                     <?php 
-                    print_r($search_string);
-                    $cmd_select = "SELECT distinct a.id, a.surname, a.first_name, a.occupation_id, a.Party_id, b.occupation, c.party_name ";
-                    $cmd_tables = "from people a, occupation b, party c, history d ";
-                    $cmd_where = "where b.id = occupation_id and c.id = a.party_id and d.people_id = a.id " . $search_string;
-                    $cmd_order_by = "order by surname, first_name";
-                    $cmd_limit = "";
-                    $cmd_full = $cmd_select . $cmd_tables . $cmd_where . $cmd_order_by . $cmd_limit;
-                    $rows = query($cmd_full);
+                    print_r($search_string); echo "<br>";
+                    $rows = query($search_string);
                     //$rows = query("SELECT a.id, a.surname, a.first_name, a.occupation_id, a.Party_id, b.occupation, c.party_name from people a, occupation b, party c where b.id = occupation_id and c.id = a.party_id order by surname, first_name");
                     if (count($rows) > 0)
                     {

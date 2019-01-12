@@ -22,25 +22,27 @@
                 <thead>
                     <tr>
                         <th>Date</th>
+                        <th>Place</th>
                         <th>Event</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                    $rows = query("SELECT * from history a where people_id = ? order by event_date, id", $_SESSION["selected_people_id"]);
+                    $rows = query("SELECT a.id, a.event_date, b.place, a.notes from history a, places b where a.place_id = b.id and a.people_id = ? order by a.event_date, a.id", $_SESSION["selected_people_id"]);
                     if (count($rows) > 0)
                     {
                         foreach ($rows as $row)
                         {
                             echo '<tr>';
                                 echo '<td>' . $row['event_date'] . '</td>';
+                                echo '<td>' . $row['place'] . '</td>';
                                 echo '<td>' . $row['notes'] . '</td>';
                                 echo '<td>';
-                                    echo '<a class="btn btn-success" href="../ctl/history_read.php?id=' . $row['id'] . '">Read</a>';
+                                    echo '<a href="../ctl/history_read.php?id=' . $row['id'] . '">Read</a> &nbsp;'; // class="btn btn-success" 
 												if ($_SESSION["user_role"] == "STAFF" | $_SESSION["user_role"] == "ADMIN" ) {
-                                    	echo '<a class="btn btn-success" href="../ctl/history_update.php?id=' . $row['id'] . '">Update</a>';
-                                    	echo '<a class="btn btn-danger" href="../ctl/history_delete.php?id=' . $row['id'] . '">Delete</a>';
+                                    	echo '<a href="../ctl/history_update.php?id=' . $row['id'] . '">Update &nbsp;</a>'; //class="btn btn-success" 
+                                    	echo '<a href="../ctl/history_delete.php?id=' . $row['id'] . '">Delete</a>'; //class="btn btn-danger" 
                                     }
                                 echo '</td>';
                             echo '</tr>';

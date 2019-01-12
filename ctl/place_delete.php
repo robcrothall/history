@@ -6,7 +6,8 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-         $rows = query("SELECT b.surname, b.first_name, a.event_date, a.notes from history a, people b where a.people_id = b.id and a.place_id =? order by b.surname, b.first_name, a.event_date", $place_id);
+    	print_r($_SESSION["place_id"]);
+         $rows = query("SELECT b.surname, b.first_name, a.event_date, a.notes from history a, people b where a.people_id = b.id and a.place_id =? order by b.surname, b.first_name, a.event_date", $_SESSION["place_id"]);
          //$rows = query("SELECT * from places where place_id = ? order by place", $_SESSION["place_id"]);
          if (count($rows) > 0)
             {
@@ -25,6 +26,7 @@
     	$id = null;
     	if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
+      	$_SESSION["place_id"] = $id;
     	}
      
     	if ( null==$id ) {

@@ -10,7 +10,7 @@
     }
     else
     {
-        render("../view/history_form.php", ["title" => "All History"]);
+        render("../view/history_form.php", ["title" => "Historical events"]);
     }
 
 ?>

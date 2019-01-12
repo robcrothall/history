@@ -16,6 +16,19 @@
             <td>Date (free format)</td>
             <td><input type='text' name='event_date' class='form-control'></td>
         </tr>
+		  <tr>
+		  		<td>Place</td>
+		  		<td>
+	  			<select name="place_id">
+		  				<?php
+		  					$rows = query("SELECT distinct * FROM places order by place");
+		  					foreach ($rows as $row) {
+		    					echo "<option value=" . $row['id'] . ">" . $row['place'] . "</option>";
+		    				}
+		  				?>
+	  			</select>
+	  			</td>
+		  </tr>
         <tr>
             <td>Notes on this event</td>
             <td><textarea name='notes' class='form-control'></textarea></td>

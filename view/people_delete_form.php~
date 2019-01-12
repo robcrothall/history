@@ -82,7 +82,7 @@
       </thead>
       <tbody>
          <?php 
-         $rows = query("SELECT a.event_date, a.notes from history a, events_people b where a.id = b.event_id and b.person_id = ? order by a.event_date", $person_id);
+         $rows = query("SELECT a.event_date, a.notes from history a, events_people b where a.id = b.event_id and b.person_id = ? order by a.event_date", $people_id);
          if (count($rows) > 0)
             {
             foreach ($rows as $row)

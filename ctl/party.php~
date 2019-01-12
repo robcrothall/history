@@ -10,7 +10,7 @@
     }
     else
     {
-        render("../view/party_name_form.php", ["title" => "All Partys"]);
+        render("../view/party_form.php", ["title" => "All Partys"]);
     }
 
 ?>

@@ -4,6 +4,7 @@
 	$place_id = htmlspecialchars(strip_tags($form_id));
 	$data = query("select * from places where id = ?", $place_id); 
 	$_SESSION["place_id"] = $place_id;
+	print_r($place_id);
 	$place = $data[0]["place"]; 
 	$_SESSION["place"] = $place;
 	$notes = $data[0]["notes"];

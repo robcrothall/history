@@ -19,7 +19,7 @@
         header("Location: index.php");
     	} else {
     		$_SESSION["party_id"] = $id;
-        render("../view/party_name_read_form.php", ["title" => "Display details about a Party",
+        render("../view/party_read_form.php", ["title" => "Display details about a Party",
             "form_id" => "$id"]);
          }
     }

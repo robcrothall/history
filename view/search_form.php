@@ -94,7 +94,6 @@
    		</tr>
   		</table>
       <br>
-<!--		<a class="btn btn-success" href="../view/search.php" style="text-align: center;">Submit</a> -->
 		<input type='submit' value='Search' class='btn btn-primary' />
 </form>
 		<br><br>

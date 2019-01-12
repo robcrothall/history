@@ -61,7 +61,7 @@
 		  				<?php
 		  					$rows = query("SELECT * FROM `party` order by party_name");
 		  					foreach ($rows as $row) {
-		    					echo "<option value=" . $row['id'] . ">" . $row['party'] . "</option>";
+		    					echo "<option value=" . $row['id'] . ">" . $row['party_name'] . "</option>";
 		    				}
 		  				?>
 		  			</select>  
@@ -71,12 +71,12 @@
 				<td align="right" width="30%">Places</td>
 				<td width="2%">&nbsp</td>
 				<td align="left" width="70%">
-		  			<select>
+		  			<select name="place_id">
 		    			<option value="any">Any place</option>
 		  				<?php
-		  					$rows = query("SELECT * FROM `places` order by place");
+		  					$rows = query("SELECT distinct a.place_id, b.place FROM history a, places b where a.place_id = b.id order by b.place");
 		  					foreach ($rows as $row) {
-		    					echo "<option value=" . $row['id'] . ">" . $row['place'] . "</option>";
+		    					echo "<option value=" . $row['place_id'] . ">" . $row['place'] . "</option>";
 		    				}
 		  				?>
 		  			</select>

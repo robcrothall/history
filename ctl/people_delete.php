@@ -6,7 +6,7 @@
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-         $rows = query("SELECT * from events_people where person_id = ?", $_SESSION["people_id"]);
+         $rows = query("SELECT * from history where people_id = ?", $_SESSION["people_id"]);
          if (count($rows) > 0)
             {
 					apologize("Delete dependent references before deleting the person.");
