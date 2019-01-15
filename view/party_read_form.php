@@ -17,6 +17,11 @@
   <div class="container">
    <table border="0" cellpadding="0" cellspacing="10" width="100%">
 	      <tr>
+				<td align="right" width="30%">Record ID:</td>
+				<td width="2%"></td>
+				<td align="left" width="70%"><?php echo $party_id; ?></td>
+	      </tr>
+	      <tr>
 				<td align="right" width="30%">Party name:</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><?php echo $party_name; ?></td>

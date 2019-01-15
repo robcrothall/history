@@ -4,7 +4,7 @@
 	$voyage_id = htmlspecialchars(strip_tags($form_id));
 	$_SESSION["selected_voyage_id"] = $voyage_id;
 	//$data = query("select a.*, b.%lookupName% from voyage a, %lookupTable% b where a.%lookupName%_id = b.id and a.id = ?", $voyage_id); 
-	$data = query("SELECT a.id, d.ship_name, a.voyage_date, b.place origin, c.place dest, a.notes from voyage a, places b, places c, ship d where d.id = a.ship_id and a.origin = b.id and a.destination = c.id and a.id = ? order by ship_name, voyage_date",
+	$data = query("SELECT a.*, d.ship_name, b.place origin, c.place dest, a.notes from voyage a, places b, places c, ship d where d.id = a.ship_id and a.origin = b.id and a.destination = c.id and a.id = ? order by ship_name, voyage_date",
 						$voyage_id); 
 	$ship_name = $data[0]["ship_name"];
 	$voyage_date = $data[0]["voyage_date"]; 

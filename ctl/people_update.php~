@@ -5,6 +5,7 @@
     {
             $rec_id = $_SESSION["rec_id"];
       		$_SESSION["people_id"] = $rec_id;
+    			$_SESSION["selected_people_id"] = $rec_id;
             $surname=trim(substr(htmlspecialchars(strip_tags($_POST['surname']), ENT_COMPAT),0,50));
             $first_name=trim(substr(htmlspecialchars(strip_tags($_POST['first_name']), ENT_COMPAT),0,50));
             $other_name=trim(substr(htmlspecialchars(strip_tags($_POST['other_name']), ENT_COMPAT),0,50));
@@ -24,11 +25,29 @@
 				If ($rows === false)
 				{
 					print_r($rec_id);
+					print_r(" - ");
 					print_r($surname);
+					print_r(" - ");
+					print_r($first_name);
+					print_r(" - ");
+					print_r($other_name);
+					print_r(" - ");
+					print_r($title);
+					print_r(" - ");
+					print_r($birth_year);
+					print_r(" - ");
 					print_r($occupation_id);
+					print_r(" - ");
+					print_r($party_id);
+					print_r(" - ");
+					print_r($ref_no);
+					print_r(" - ");
 					print_r($notes);
+					print_r(" - ");
 					print_r(strlen($notes));
+					print_r(" - ");
 					print_r($user_id);
+					print_r(" - ");
 					print_r($rows);
 					apologize("Update failed.  Please call support.");
 				}

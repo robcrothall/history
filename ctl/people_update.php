@@ -19,17 +19,36 @@
             // Do some validation
             $errMsg = "";
             if (empty($surname)) {$errMsg .= "The surname name cannot be empty. ";}
+				if (empty($birth_year)) {$birth_year = 0;}
             if (!empty($errMsg)) {apologize($errMsg);}
             $rows = query("update people set surname=?, first_name=?, other_name=?, title=?, birth_year=?, occupation_id=?, party_id=?, ref_no=?, notes=?, user_id=?, changed=CURRENT_TIMESTAMP() where id=?",
                     $surname, $first_name, $other_name, $title, $birth_year, $occupation_id, $party_id, $ref_no, $notes, $user_id, $rec_id);
 				If ($rows === false)
 				{
 					print_r($rec_id);
+					print_r(" - ");
 					print_r($surname);
+					print_r(" - ");
+					print_r($first_name);
+					print_r(" - ");
+					print_r($other_name);
+					print_r(" - ");
+					print_r($title);
+					print_r(" - ");
+					print_r($birth_year);
+					print_r(" - ");
 					print_r($occupation_id);
+					print_r(" - ");
+					print_r($party_id);
+					print_r(" - ");
+					print_r($ref_no);
+					print_r(" - ");
 					print_r($notes);
+					print_r(" - ");
 					print_r(strlen($notes));
+					print_r(" - ");
 					print_r($user_id);
+					print_r(" - ");
 					print_r($rows);
 					apologize("Update failed.  Please call support.");
 				}

@@ -16,6 +16,11 @@
   <div class="container">
    <table border="0" cellpadding="0" cellspacing="10" width="100%">
 	      <tr>
+				<td align="right" width="30%">Record ID:</td>
+				<td width="2%"></td>
+				<td align="left" width="70%"><?php echo $form_id; ?></td>
+	      </tr>
+	      <tr>
 				<td align="right" width="30%">Event date:</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><?php echo $event_date; ?></td>

@@ -2,6 +2,7 @@
 
 	$_SESSION["module"] = $_SERVER["PHP_SELF"];
 	$ship_id = htmlspecialchars(strip_tags($form_id));
+	$_SESSION["selected_ship_id"] = $ship_id;
 	$data = query("select * from ship where id = ?", $ship_id); 
 	$ship = $data[0]["ship_name"];
 	$notes = $data[0]["notes"];

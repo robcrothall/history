@@ -10,17 +10,9 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
-      	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-        render("../view/occupation_read_form.php", ["title" => "Display details about an Occupation",
+      $id = $_REQUEST['id'];
+      render("../view/occupation_read_form.php", ["title" => "Display details about an Occupation",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

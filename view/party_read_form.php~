@@ -2,7 +2,7 @@
 
 	$_SESSION["module"] = $_SERVER["PHP_SELF"];
 	$party_id = htmlspecialchars(strip_tags($form_id));
-	$data = query("select a.*, b.* from party a, people b where a.party_leader = b.id and a.id = ?", $party_id); 
+	$data = query("select a.*, b.surname, b.first_name from party a, people b where a.party_leader = b.id and a.id = ?", $party_id); 
 	$party_name = $data[0]["party_name"];
 	$party_leader = $data[0]["surname"] . ", " . $data[0]["first_name"]; 
 	$party_leader_id = $data[0]["party_leader"];

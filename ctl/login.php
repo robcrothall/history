@@ -12,6 +12,8 @@
     $_SESSION["search_date"] = "";
     $_SESSION["user_role"] = "Visitor";
     $_SESSION["selected_people_id"] = 0;
+  	 $_SESSION["search_name_start"] = "";
+
     // if form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
