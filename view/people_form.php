@@ -18,7 +18,7 @@
                     <tr>
                         <th>People</th>
                         <th>Occupation</th>
-                        <th>Party</th>
+                        <th>Settler Party</th>
                         <th>Action</th>
                     </tr>
                 </thead>

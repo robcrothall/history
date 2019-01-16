@@ -1,6 +1,6 @@
-<h2 align="center">List of Parties</h2>
+<h2 align="center">List of Settler Parties</h2>
     <div class="container">
-        <p><a href="../ctl/party_create.php" class="btn btn-success">Create a new party</a></p>
+        <p><a href="../ctl/party_create.php" class="btn btn-success">Create a new settler party</a></p>
         <div class="row">
             <table class="table table-striped table-bordered">
                 <thead>

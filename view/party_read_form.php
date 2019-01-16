@@ -13,7 +13,7 @@
 	$username = $data[0]["username"];
 	$user_name_given = $data[0]["first_name"] . " " . $data[0]["surname"];
 ?>
-<h2>Read about a Party</h2>
+<h2>Read about a Settler Party</h2>
   <div class="container">
    <table border="0" cellpadding="0" cellspacing="10" width="100%">
 	      <tr>
@@ -22,7 +22,7 @@
 				<td align="left" width="70%"><?php echo $party_id; ?></td>
 	      </tr>
 	      <tr>
-				<td align="right" width="30%">Party name:</td>
+				<td align="right" width="30%">Settler Party name:</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><?php echo $party_name; ?></td>
 	      </tr>

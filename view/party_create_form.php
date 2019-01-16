@@ -1,4 +1,4 @@
-<h2>Record a new Party</h2>
+<h2>Record a new Settler Party</h2>
 
 <form action="../ctl/party_create.php" method="post">
     <table class='table table-hover table-responsive table-bordered'>

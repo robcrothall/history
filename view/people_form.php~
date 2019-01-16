@@ -10,6 +10,7 @@
         <form action="../ctl/people.php">
         <a href="../ctl/people_create.php" class="btn btn-success">Create a new person</a>
         		&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Surnames from:"><input type="search" name="search_string" autofocus="true" value="<?php echo $_SESSION["search_name_start"]; ?>">
+			<a href="../ctl/people_create.php" class="btn btn-success">Back</a><a href="../ctl/people_create.php" class="btn btn-success">Forward</a>
         </form>
         <div class="row">
             <table class="table table-striped table-bordered">

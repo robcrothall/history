@@ -53,7 +53,7 @@
 				<td align="left" width="70%"><?php echo $occupation; ?></td>
 	      </tr>
 	      <tr>
-				<td align="right" width="30%">Party name:</td>
+				<td align="right" width="30%">Settler party name:</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><?php echo $party_name; ?></td>
 	      </tr>

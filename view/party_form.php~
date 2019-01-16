@@ -1,4 +1,4 @@
-<h2 align="center">List of Partys</h2>
+<h2 align="center">List of Parties</h2>
     <div class="container">
         <p><a href="../ctl/party_create.php" class="btn btn-success">Create a new party</a></p>
         <div class="row">

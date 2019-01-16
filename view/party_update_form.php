@@ -12,7 +12,7 @@
 	$data = query("select username from users where id = ?", $user_id);
 	$username = $data[0]["username"];
 ?>
-<h2>Update a party_name</h2>
+<h2>Update details of a settler party</h2>
 
 <form action="../ctl/party_update.php" method="post">
     <table class='table table-hover table-responsive table-bordered'>
@@ -38,7 +38,7 @@
 				</td>
 	     </tr>
         <tr>
-            <td>Notes on this party</td>
+            <td>Notes on this settler party</td>
             <td><textarea name='notes' class='form-control'><?php echo $notes; ?></textarea></td>
         </tr>
         <tr>

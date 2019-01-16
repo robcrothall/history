@@ -24,7 +24,7 @@
 <form action="../ctl/people_update.php" method="post">
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
-            <td>Surame</td> 
+            <td>Surname</td> 
             <input type="hidden" id="rec_id" name="rec_id" value="<?php echo $people_id; ?>" /></td>
             <td><input type='text' name='surname' class='form-control' value='<?php echo $surname; ?>' /></td>
         </tr>
