@@ -20,18 +20,10 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-    		$_SESSION["occupation_id"] = $id;
-			render("../view/occupation_delete_form.php", ["title" => "Delete an occupation",
+		$_SESSION["occupation_id"] = $id;
+		render("../view/occupation_delete_form.php", ["title" => "Delete an occupation",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

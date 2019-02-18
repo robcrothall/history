@@ -46,7 +46,7 @@
       </thead>
       <tbody>
          <?php 
-         $rows = query("SELECT * from people where occupation_id = ? order by surname, first_name", $occupation_id);
+         $rows = query("SELECT * from people where occupation_id = ? order by surname, first_name limit 50", $occupation_id);
          if (count($rows) > 0)
             {
             foreach ($rows as $row)

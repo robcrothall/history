@@ -10,7 +10,17 @@
     }
     else
     {
+        if (!empty($_SESSION["selected_people_id"]))
+        {
+            if ($_SESSION["selected_people_id"] == 0)
+            {
+                apologize("You must select a person before looking at history.");
+            }
+        }
+        else 
+        {
+            apologize("You must select a person before looking at history.");
+        }
         render("../view/history_form.php", ["title" => "Historical events"]);
     }
-
 ?>

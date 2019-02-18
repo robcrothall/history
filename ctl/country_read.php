@@ -10,17 +10,9 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-        render("../view/country_read_form.php", ["title" => "Display details about a Country",
+      	render("../view/country_read_form.php", ["title" => "Display details about a Country",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

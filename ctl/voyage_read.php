@@ -10,17 +10,8 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
         render("../view/voyage_read_form.php", ["title" => "Display details about a Voyage",
             "form_id" => "$id"]);
-         }
     }
-
 ?>

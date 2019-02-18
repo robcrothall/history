@@ -13,25 +13,20 @@
             }
          else 
          	{
-					$rows = query("DELETE from party where id = ?", $_SESSION["party_id"]);
+				$rows = query("DELETE from party where id = ?", $_SESSION["party_id"]);
          		$message = $_SESSION["party_name"] . " has been deleted.";
          	}
        render("../view/party_form.php", ["message" => $message]);
     }
     else
     {
-    	$id = null;
+    	$id = 0;
     	if ( !empty($_GET['id'])) {
       	$id = $_GET['id'];
     	}
      
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-    		$_SESSION["party_id"] = $id;
-         render("../view/party_delete_form.php", ["title" => "Delete a party",
+		$_SESSION["party_id"] = $id;
+        render("../view/party_delete_form.php", ["title" => "Delete a party",
             "form_id" => "$id"]);
-         }
     }
-
 ?>

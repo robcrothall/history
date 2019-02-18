@@ -10,7 +10,7 @@
     }
     else
     {
-        render("../view/voyage_form.php", ["title" => "All Voyage"]);
+        render("../view/voyage_form.php", ["title" => "All Voyages"]);
     }
 
 ?>

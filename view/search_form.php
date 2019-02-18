@@ -82,7 +82,23 @@
 		  			</select>
 				</td>
 	      </tr>
-   		<tr>
+	      <?php
+            if($_SESSION["user_role"] == "STAFF" | $_SESSION["user_role"] == "ADMIN") {
+                echo "<tr>";
+                echo '<td align="right" width="30%">Checked status</td>';
+                echo '<td width="2%">&nbsp</td>';
+                echo '<td align="left" width="70%">';
+                echo '<select name="checked">';
+                echo '<option value="any" selected>Any status</option>';
+	  		    $checked_status = ["N","Y","Query"];
+	  		    foreach ($checked_status as $status)
+	  		    {
+	  		        echo "<option value=$status>$status</option>";
+	  		    }
+                echo "</tr>";
+            }
+	      ?>
+ <!--  		<tr>
 				<td align="right" width="30%">Keywords (or)</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><input type=search name=keywords_or size="50" placeholder="Find at least ONE in a history record"></td>
@@ -91,7 +107,7 @@
 				<td align="right" width="30%">Keywords (and)</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><input type=search name=keywords_and size="50" placeholder="Find ALL in a history record"></td>
-   		</tr>
+   		</tr>   -->
   		</table>
       <br>
 		<input type='submit' value='Search' class='btn btn-primary' />

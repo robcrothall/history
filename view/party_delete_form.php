@@ -6,6 +6,7 @@
 	$_SESSION["party_id"] = $party_id;
 	$party_name = $data[0]["party_name"]; 
 	$_SESSION["party_name"] = $party_name;
+	$voyage_id = $data[0]["voyage_id"];
 	$notes = $data[0]["notes"];
 	$user_id = $data[0]["user_id"];
 	$changed = $data[0]["changed"];
@@ -46,7 +47,7 @@
       </thead>
       <tbody>
          <?php 
-         $rows = query("SELECT * from people where party_id = ? order by surname, first_name", $party_id);
+         $rows = query("SELECT * from people where party_id = ? order by surname, first_name limit 50", $party_id);
          if (count($rows) > 0)
             {
             foreach ($rows as $row)

@@ -23,10 +23,11 @@
     else
     {
 			if (empty($_REQUEST['search_string']))
-			{$search_name_start = '';}
+			{$search_name_start = $_SESSION["search_name_start"];}
 			else {$search_name_start = $_REQUEST['search_string'];}
-    	   $_SESSION["search_name_start"] = $search_name_start;
+    	    $_SESSION["search_name_start"] = $search_name_start;
 		render("../view/people_form.php", ["title" => "Top 50 People", "search_name_start" => "$search_name_start"]);
+		//render("../view/people_form.php", ["title" => "Top 50 People");
     }
 
 ?>

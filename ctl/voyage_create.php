@@ -6,15 +6,19 @@
 		// Validate fields
 		$error = false;
 		$message = "";
-		$voyage_date = "";
-		$origin = "";
-		$dest = "";
+		$ship_id = 0;
+		$departure_date = "";
+		$arrival_date = "";
+		$origin_id = 0;
+		$dest_id = 0;
 		$notes = "";
-		if (empty($_POST["voyage_date"])) {$message .= "You must provide the date of the start of the voyage.  "; $error = true;}
-		else {$voyage_date = substr(htmlspecialchars(strip_tags($_POST['voyage_date'])),0,50);}
+		if (empty($_POST["departure_date"])) {$departure_date = " ";}
+		else {$departure_date = substr(htmlspecialchars(strip_tags($_POST['departure_date'])),0,20);}
+		if (empty($_POST["arrival_date"])) {$arrival_date = " ";}
+		else {$arrival_date = substr(htmlspecialchars(strip_tags($_POST['arrival_date'])),0,20);}
 		$ship_id = substr(htmlspecialchars(strip_tags($_POST["ship_id"])),0,20);
-		$origin = substr(htmlspecialchars(strip_tags($_POST["origin"])),0,20);
-		$destination = substr(htmlspecialchars(strip_tags($_POST["destination"])),0,20);
+		$origin_id = substr(htmlspecialchars(strip_tags($_POST["origin_id"])),0,20);
+		$destination_id = substr(htmlspecialchars(strip_tags($_POST["destination_id"])),0,20);
 		if (empty($_POST["notes"])) {$notes = ""; $message = "No notes on this voyage?  "; }
 		else {$notes=substr(htmlspecialchars(strip_tags($_POST['notes'])),0,65534);}
 
@@ -26,12 +30,13 @@
 		if($error == false) 
 		{
 			$ship_id = trim($ship_id);
-			$voyage_date = trim($voyage_date);
-			$origin = trim($origin);
-			$destination = trim($destination);
+			$departure_date = trim($departure_date);
+			$arrival_date = trim($arrival_date);
+			$origin_id = trim($origin_id);
+			$destination_id = trim($destination_id);
 			$notes = trim($notes);
-			$rowCount = query("insert into voyage (voyage_date, ship_id, origin, destination, notes, user_id, changed) values (?,?,?,?,?,?,CURRENT_TIMESTAMP())",
-								$voyage_date, $ship_id, $origin, $destination, $notes, $_SESSION["id"]);
+			$rowCount = query("insert into voyage (departure_date, arrival_date, ship_id, origin_id, destination_id, notes, user_id, changed) values (?,?,?,?,?,?,?,CURRENT_TIMESTAMP())",
+								$departure_date, $arrival_date, $ship_id, $origin_id, $destination_id, $notes, $_SESSION["id"]);
 			if($rowCount == false) 
 			{
 				$message .= "Record inserted successfully.";

@@ -178,7 +178,7 @@
         // return result set's rows, if any
         if ($results !== false)
         {
-        		$_SESSION["inserted_row_id"] = mysqli_insert_id($handle);
+        		//$_SESSION["inserted_row_id"] = mysqli_insert_id($handle);
             return $statement->fetchAll(PDO::FETCH_ASSOC);
         }
         else

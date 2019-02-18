@@ -53,8 +53,8 @@
 					 $success = TRUE;
 					 login_log($user_name_given, $password_given, $success);
 					 $today = date("Y-m-d");
-					 print_r($today);
-					 print_r($_SESSION["search_date"]);
+					 //print_r($today);
+					 //print_r($_SESSION["search_date"]);
 					 if ($_SESSION["search_date"] != $today)
 						{
 							$_SESSION["search_date"] = $today;

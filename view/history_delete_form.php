@@ -12,7 +12,7 @@
 	$data = query("select username from users where id = ?", $user_id);
 	$username = $data[0]["username"];
 ?>
-<h2>This event_date is about to be deleted!</h2>
+<h2>This event is about to be deleted!</h2>
   <div class="container">
   <form action="../ctl/history_delete.php" method="post">
    <table border="0" cellpadding="0" cellspacing="10" width="100%">

@@ -18,11 +18,13 @@
                         {
                             echo '<tr>';
                                 echo '<td>' . $row['country'] . '</td>';
-                                echo '<td>';
+                                echo '<td style="width:240px">';
                                     echo '<a class="btn btn-success" href="../ctl/country_read.php?id=' . $row['id'] . '">Read</a>';
 												if ($_SESSION["user_role"] == "STAFF" | $_SESSION["user_role"] == "ADMIN" ) {
                                     	echo '<a class="btn btn-success" href="../ctl/country_update.php?id=' . $row['id'] . '">Update</a>';
-                                    	echo '<a class="btn btn-danger" href="../ctl/country_delete.php?id=' . $row['id'] . '">Delete</a>';
+                                    	if ($row['id'] > 0) {
+                                    	    echo '<a class="btn btn-danger" href="../ctl/country_delete.php?id=' . $row['id'] . '">Delete</a>';
+                                    	}
                                     }
                                 echo '</td>';
                             echo '</tr>';

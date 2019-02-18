@@ -12,18 +12,10 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-    		$_SESSION["selected_ship_id"] = $id;
-        	render("../view/ship_delete_form.php", ["title" => "Delete a ship entry",
+		$_SESSION["selected_ship_id"] = $id;
+    	render("../view/ship_delete_form.php", ["title" => "Delete a ship entry",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

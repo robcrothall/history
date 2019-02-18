@@ -5,12 +5,15 @@
 	$data = query("select * from history where id = ?", $form_id); 
 	$event_date = $data[0]["event_date"];
 	$event_id = $data[0]["id"]; 
+	$place_id = $data[0]["place_id"]; 
 	$notes = $data[0]["notes"];
 	$user_id = $data[0]["user_id"];
 	$changed = $data[0]["changed"];
 	$data = query("select * from users where id = ?", $user_id);
 	$username = $data[0]["username"];
 	$user_name_given = $data[0]["surname"] . ", " . $data[0]["first_name"];
+	$data = query("select place from places where id = ?", $place_id);
+	$place = $data[0]["place"];
 ?>
 <h2>Read about an event in history</h2>
   <div class="container">
@@ -24,6 +27,11 @@
 				<td align="right" width="30%">Event date:</td>
 				<td width="2%"></td>
 				<td align="left" width="70%"><?php echo $event_date; ?></td>
+	      </tr>
+	      <tr>
+				<td align="right" width="30%">Place:</td>
+				<td width="2%"></td>
+				<td align="left" width="70%"><?php echo $place; ?></td>
 	      </tr>
 	      <tr>
 				<td align="right" width="25%">Changed by:</td>

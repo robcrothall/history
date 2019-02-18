@@ -7,7 +7,7 @@
 				<td>
 		  			<select name="ship_id">
 		  				<?php
-		  					$rows = query("SELECT * FROM `ship` order by ship_name");
+		  					$rows = query("SELECT id, ship_name FROM `ship` order by ship_name");
 		  					foreach ($rows as $row) {
 		    					echo "<option value=" . $row['id'] . ">" . $row['ship_name'] . "</option>";
 		    				}
@@ -16,13 +16,17 @@
 				</td>
 	     </tr>
          <tr>
-            <td>Voyage date</td>
-            <td><input type='text' name='voyage_date' class='form-control'></td>
+            <td>Voyage departure date</td>
+            <td><input type='text' name='departure_date' class='form-control'></td>
+        </tr>
+         <tr>
+            <td>Voyage arrival date</td>
+            <td><input type='text' name='arrival_date' class='form-control'></td>
         </tr>
 	     <tr>
 				<td>Port of origin</td>
 				<td>
-		  			<select name="origin">
+		  			<select name="origin_id">
 		  				<?php
 		  					$rows = query("SELECT * FROM `places` order by place");
 		  					foreach ($rows as $row) {
@@ -35,7 +39,7 @@
 	     <tr>
 				<td>Destination port</td>
 				<td>
-		  			<select name="destination">
+		  			<select name="destination_id">
 		  				<?php
 		  					$rows = query("SELECT * FROM `places` order by place");
 		  					foreach ($rows as $row) {

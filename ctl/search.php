@@ -30,6 +30,8 @@
 			{$search_string .= "and occupation_id = '" . trim(substr(htmlspecialchars(strip_tags($_POST["occupation_id"]), ENT_COMPAT),0,50)) . "' ";}
 		if(!empty($_POST["party_id"]) && trim(substr(htmlspecialchars(strip_tags($_POST["party_id"]), ENT_COMPAT),0,50)) != "any")
 			{$search_string .= "and party_id = '" . trim(substr(htmlspecialchars(strip_tags($_POST["party_id"]), ENT_COMPAT),0,50)) . "' ";}
+		if(!empty($_POST["checked"]) && trim(substr(htmlspecialchars(strip_tags($_POST["checked"]), ENT_COMPAT),0,50)) != "any")
+			{$search_string .= "and checked = '" . trim(substr(htmlspecialchars(strip_tags($_POST["checked"]), ENT_COMPAT),0,50)) . "' ";}
 		if(!empty($_POST["place_id"]) && trim(substr(htmlspecialchars(strip_tags($_POST["place_id"]), ENT_COMPAT),0,50)) != "any")
 			{
 				$search_string .= "and place_id = '" . trim(substr(htmlspecialchars(strip_tags($_POST["place_id"]), ENT_COMPAT),0,50)) . "' ";
@@ -38,13 +40,13 @@
 			}
 
 		$cmd_full = $cmd_select . $cmd_tables . $cmd_where . $search_string . $cmd_order_by . $cmd_limit;
-		print_r($cmd_full);
+		//print_r($cmd_full);
 		render("../view/search_results_form.php", ["title" => "All Peoples", "search_string" => $cmd_full]);
     }	
     else
     {
     	// else render form
-      render($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "view/search_form.php", ["title" => "Search for People"]);
+      render("../view/search_form.php", ["title" => "Search for People"]);
     }
 
 ?>

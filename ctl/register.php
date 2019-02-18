@@ -42,21 +42,35 @@
         {
             apologize("You must provide your email address. We will not abuse it.");
         }
-
-        // query database for user
-        $rows = query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
+        // query database for username
+        $username = trim(substr(htmlspecialchars($_POST['username'], ENT_COMPAT),0,50));
+        $rows = query("SELECT * FROM users WHERE username = ?", $username);
 
         // if we found user, tell him he is already registered
-        if (count($rows) == 1)
+        if (count($rows) > 0)
         {
-            apologize("Your username has already been registered - please choose another.");
+            apologize("Your username has already been registered - please choose another, or log on.  If you don't remember your password, contact the Kowie Museum.");
+        }
+        // query database for email address
+        $email = trim(substr(htmlspecialchars($_POST['email'], ENT_COMPAT),0,50));
+        $rows = query("SELECT * FROM users WHERE email = ?", $email);
+
+        // if we found user, tell him he is already registered
+        if (count($rows) > 0)
+        {
+            apologize("Your email has already been registered by User Name = $username - please log on.  If you don't remember your password, contact the Kowie Museum.");
         }
         // insert the new user into the users table
-		  $mydate = date("Y-m-d");
-		  $expdate = date("Y-m-d",strtotime("+1 week"));
+        $username = trim(substr(htmlspecialchars($_POST['username'], ENT_COMPAT),0,50));
+        $surname = trim(substr(htmlspecialchars($_POST['surname'], ENT_COMPAT),0,50));
+        $first_name = trim(substr(htmlspecialchars($_POST['first_name'], ENT_COMPAT),0,50));
+        $phone = trim(substr(htmlspecialchars($_POST['phone'], ENT_COMPAT),0,50));
+        $mobile = trim(substr(htmlspecialchars($_POST['mobile'], ENT_COMPAT),0,50));
+        $email = trim(substr(htmlspecialchars($_POST['email'], ENT_COMPAT),0,50));
+		$mydate = date("Y-m-d");
+		$expdate = date("Y-m-d",strtotime("+1 week"));
         $rows = query("INSERT INTO users (username, hash, surname, first_name, phone, mobile, email, member_exp, search_count, search_date, user_role, user_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", 
-            $_POST["username"], crypt($_POST["password"],$_POST["username"]), $_POST["surname"], $_POST["first_name"], 
-            $_POST["phone"], $_POST["mobile"], $_POST["email"], $expdate, 1, $mydate, "VISITOR", "1");
+            $username, crypt($_POST["password"],$username), $surname, $first_name, $phone, $mobile, $email, $expdate, 1, $mydate, "VISITOR", "1");
         if ($rows === false)
         {
             apologize("Unable to register your user name - please contact support");

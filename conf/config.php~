@@ -23,7 +23,7 @@
     {
         if (empty($_SESSION["id"]))
         {
-            redirect($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "ctl/login.php");
+            redirect($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "view/login.php");
         }
     }
 

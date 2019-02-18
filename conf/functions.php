@@ -6,7 +6,8 @@
      * Helper functions.
      */
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "conf/constants.php");
+    //require_once($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "conf/constants.php");
+    require_once("../conf/constants.php");
 
     /**
      * Apologizes to user with message.

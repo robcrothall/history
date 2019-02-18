@@ -13,24 +13,16 @@
             }
          else 
          	{
-					$rows = query("DELETE from people where id = ?", $_SESSION["people_id"]);
+				$rows = query("DELETE from people where id = ?", $_SESSION["people_id"]);
          		$message = $_SESSION["surname"] . ", " . $_SESSION["first_name"] . " " . $_SESSION["other_name"] . " has been deleted.";
          	}
        render("../view/people_form.php", ["message" => $message]);
     }
     else
     {
-    	//$id = null;
-    	//if ( !empty($_GET['id'])) {
       	$id = $_REQUEST['id'];
-    	//}
-     
-    	if ( null==$id ) {
-        header("Location: ../view/people.php");
-    	} else {
         render("../view/people_delete_form.php", ["title" => "Delete a person",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

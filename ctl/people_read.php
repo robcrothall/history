@@ -12,7 +12,7 @@
     {
       	$id = $_REQUEST['id'];
       	$_SESSION["people_id"] = $id;
-    	   $_SESSION["selected_people_id"] = $id;
+    	$_SESSION["selected_people_id"] = $id;
         render("../view/people_read_form.php", ["title" => "Display details about a Person",
             "form_id" => "$id"]);
     }
