@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+	<meta charset="UTF-8">    
+	<title>Class test</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+<?php include("class_lib.php");
+
+	$stefan = new person("Stefan Mischook");
+	$jimmy = new person("Nick Waddles");
+	
+	echo "Stefan's full name: " . $stefan->getname();
+	echo "Nick's full name: " . $jimmy->get_name();
+?>
+  </body>
+</html>

@@ -7,7 +7,7 @@
      */
 
     // your website name
-    define("WEBSITE", "http://localdomain/history");
+    define("WEBSITE", "http://localhost/history");
 
     // your database's name
     define("DATABASE", "kowiemus_people");

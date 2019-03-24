@@ -12,8 +12,6 @@
 
     // requirements
     $WEBSITE = "/history/";
-    //require_once($_SERVER['DOCUMENT_ROOT'] . "/history/conf/constants.php");
-    //require_once($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "conf/functions.php");
     require_once("../conf/constants.php");
     require_once("../conf/functions.php");
 
@@ -25,8 +23,7 @@
     {
         if (empty($_SESSION["id"]))
         {
-            //redirect($_SERVER['DOCUMENT_ROOT'] . $WEBSITE . "view/login.php");
-            redirect($WEBSITE . "/view/login.php");
+            redirect("../ctl/login.php");
         }
     }
 

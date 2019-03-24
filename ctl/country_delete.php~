@@ -16,7 +16,7 @@
 					$rows = query("DELETE from countries where id = ?", $_SESSION["country_id"]);
          		$message = $_SESSION["country"] . " has been deleted.";
          	}
-       render("../view/country_form.php");
+       render("../view/country_form.php", ["message" => $message]);
     }
     else
     {

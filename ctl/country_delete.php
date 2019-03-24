@@ -20,17 +20,9 @@
     }
     else
     {
-    	$id = null;
-    	if ( !empty($_GET['id'])) {
-      	$id = $_REQUEST['id'];
-    	}
-     
-    	if ( null==$id ) {
-        header("Location: index.php");
-    	} else {
-        render("../view/country_delete_form.php", ["title" => "Delete a country",
+      $id = $_REQUEST['id'];
+      render("../view/country_delete_form.php", ["title" => "Delete a country",
             "form_id" => "$id"]);
-         }
     }
 
 ?>

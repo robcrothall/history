@@ -23,7 +23,7 @@
 		{
 			$country = trim($country);
 			$notes = trim($notes);
-			$rowCount = query("insert into countries (country, notes, user_id, time_stamp) values (?,?,?,CURRENT_TIMESTAMP())",$country,$notes,$_SESSION["id"]);
+			$rowCount = query("insert into countries (country, notes, user_id, changed) values (?,?,?,CURRENT_TIMESTAMP())",$country,$notes,$_SESSION["id"]);
 			if($rowCount == false) 
 			{
 				$message .= "Record inserted successfully.";

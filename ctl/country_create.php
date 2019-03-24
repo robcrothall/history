@@ -35,7 +35,7 @@
     }
     else
     {
-      render("../view/country_create_form.php", ["title" => "Record Details of a new Place"]);
+      render("../view/country_create_form.php", ["title" => "Record Details of a new country"]);
     }
 
 ?>
