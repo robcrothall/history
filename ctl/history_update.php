@@ -10,7 +10,26 @@
             $user_id=htmlspecialchars(strip_tags($_SESSION['id']));
             // Do some validation
             $errMsg = "";
-            if (empty($event_date)) {$errMsg .= "The event_date name cannot be empty. ";}
+				$date_out = "";
+				$seperator = "";
+            if (empty($event_date)) {$errMsg .= "The event date cannot be empty. ";}
+				else 
+				{
+					$event_date = substr(htmlspecialchars(strip_tags($_POST['event_date'])),0,50);
+					$date_ar = explode('-', $event_date);
+					//var_dump($date_ar);
+					foreach ($date_ar as $field)
+					{
+						if (strlen($field) > 0)
+						{
+							if (strlen($field) < 2) {$field = '0' . $field;}
+							$date_out .= $seperator . $field;
+							$seperator = "-";
+						}
+					}
+					//var_dump($date_out);
+				}
+				$event_date = trim($date_out);
             if (empty($notes)) {$errMsg .= "The notes cannot be empty. ";}
             if (!empty($errMsg)) {apologize($errMsg);}
             //$rows = query("update history set event_date=?, people_id = ?, notes=?, user_id=?, changed=CURRENT_TIMESTAMP() where id=?",

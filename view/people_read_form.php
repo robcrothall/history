@@ -144,7 +144,7 @@
 		</thead>
 		<tbody>
 			<?php 
-			$rows = query("SELECT id, place_id, event_date, notes from history where people_id = ? order by id", $people_id);
+			$rows = query("SELECT id, place_id, event_date, notes from history where people_id = ? order by event_date", $people_id);
 			if (count($rows) > 0)
 			{
 				foreach ($rows as $row)

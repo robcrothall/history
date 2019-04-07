@@ -15,7 +15,7 @@
 <h2>Update an event in history</h2>
 
 <form action="../ctl/history_update.php" method="post">
-    <table class='table table-hover table-responsive table-bordered'>
+    <table class='table table-hover table-bordered' border="0" cellpadding="0" cellspacing="10" width="100%">
         <tr>
             <td>Date, in the form YYYY-MM-DD</td> 
             <input type="hidden" id="rec_id" name="rec_id" value="<?php echo $history_id; ?>" /></td>

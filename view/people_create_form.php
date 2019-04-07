@@ -63,7 +63,7 @@
 			</td>
 	     </tr>
 	     <tr>
-			<td align="right" valign="top">Voyage (if not with Settler Party)</td>
+			<td align="right" valign="top">Voyage</td>
 			<td>
 		  		<select name="voyage_id">
 			        <?php
@@ -99,7 +99,7 @@
                                 $display_string .= " ($arrival_date)";
                             }
                             
-		    		        echo "<option value=" . $row_id . $selected . ">" . $display_string . " - [$row_id]</option>";
+		    		        echo "<option value=" . $row_id . $selected . ">" . $display_string . "</option>";
 		            	}
 		  	        ?>
 		  		</select>

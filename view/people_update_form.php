@@ -126,7 +126,7 @@
                                 $display_string .= " ($arrival_date)";
                             }
                             
-		    		        echo "<option value=" . $row_id . $selected . ">" . $display_string . " - [$row_id]</option>";
+		    		        echo "<option value=" . $row_id . $selected . ">" . $display_string . "</option>";
 		            	}
 		  	        ?>
 		  		</select>
